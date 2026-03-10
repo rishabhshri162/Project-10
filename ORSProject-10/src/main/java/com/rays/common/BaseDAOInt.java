@@ -1,5 +1,5 @@
 package com.rays.common;
 
-public interface BaseDAOInt {
+public interface BaseDAOInt<T extends BaseDTO> {
 
 }

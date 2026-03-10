@@ -1,5 +1,5 @@
 package com.rays.common;
 
-public interface BaseServiceInt {
+public interface BaseServiceInt <T extends BaseDTO>{
 
 }

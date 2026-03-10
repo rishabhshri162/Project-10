@@ -1,5 +1,5 @@
 package com.rays.common;
 
-public class BaseServiceImpl {
+public class BaseServiceImpl<T extends BaseDTO, D extends BaseDAOInt<T>> implements BaseServiceInt<T>{
 
 }
