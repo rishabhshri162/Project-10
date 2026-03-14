@@ -71,9 +71,7 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 			return res;
 		}
 
-		try {
 			T dto = (T) form.getDto();
-
 			
 			//update method
 			if (dto.getId() != null && dto.getId() > 0) {
@@ -100,13 +98,9 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 					}
 				}
 				baseService.add(dto, userContext);
+				res.setSuccess(true);
 				res.addMessage(dto.getTableName() + " added successfully..!!");
 			}
-		} catch (Exception e) {
-			res.setSuccess(false);
-			res.addMessage(e.getMessage());
-			e.printStackTrace();
-		}
 		return res;
 	}
 
@@ -132,7 +126,6 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 			@RequestBody F form) {
 
 		ORSResponse res = new ORSResponse(true);
-		try {
 			
 			for (String id : ids) {
 				
@@ -154,10 +147,7 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 				res.addData(list);
 				res.addResult("nextListSize", nextList.size());
 			}
-		} catch (Exception e) {
-			res.setSuccess(false);
-			res.addMessage(e.getMessage());
-		}
+	
 		return res;
 	}
 
